@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mór Irish Gin - Meta Ads Strategy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #162642 0%, #1a2b4a 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #cc5b27;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        .slide-number {
+            background: #cc5b27;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #cc5b27, #ff7b47);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #cc5b27;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #cc5b27;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #b0c4de;
+            margin-bottom: 30px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 70%;
+        }
+
+        .content-single {
+            height: 70%;
+            overflow-y: auto;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, rgba(204, 91, 39, 0.1), rgba(255, 123, 71, 0.1));
+            border: 1px solid #cc5b27;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #cc5b27;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            color: #b0c4de;
+        }
+
+        .pain-point {
+            background: rgba(22, 38, 66, 0.3);
+            border-left: 4px solid #cc5b27;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .pain-point-title {
+            font-weight: bold;
+            color: #cc5b27;
+            margin-bottom: 8px;
+        }
+
+        .phase-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+        }
+
+        .phase {
+            text-align: center;
+            flex: 1;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(204, 91, 39, 0.2), rgba(255, 123, 71, 0.1));
+            border-radius: 15px;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .phase:hover {
+            transform: scale(1.05);
+        }
+
+        .phase-number {
+            background: #cc5b27;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: #cc5b27;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #ff7b47;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            background: rgba(204, 91, 39, 0.3);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-dots {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(204, 91, 39, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #cc5b27;
+            transform: scale(1.2);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #cc5b27, #ff7b47);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .highlight-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+
+        .key-insight {
+            background: rgba(204, 91, 39, 0.1);
+            border: 2px solid #cc5b27;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .scrollable {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+
+        .scrollable::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .scrollable::-webkit-scrollbar-thumb {
+            background: #cc5b27;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide-container">
+        <div class="slide active">
+            <div class="slide-header">
+                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1754585626/lead-guru-new-logo-W-450_oyvumx.webp" alt="Lead Guru Logo" class="logo">
+                <div class="slide-number">01</div>
+            </div>
+            <div style="text-align: center; height: 70%; display: flex; flex-direction: column; justify-content: center;">
+                <h1>Mór Irish Gin</h1>
+                <div class="subtitle">Meta Ads Audit & High-Growth Scaling Strategy</div>
+                <div class="highlight-box" style="max-width: 600px; margin: 40px auto;">
+                    <div class="highlight-number">90-Day Roadmap</div>
+                    <div>Transforming Premium Gin into Identity Signal</div>
+                </div>
+                <div style="margin-top: 40px; font-size: 1.1rem; color: #b0c4de;">
+                    Comprehensive Analysis & Strategic Implementation Plan
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Executive Summary -->
+        <div class="slide">
+            <div class="slide-header">
+                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1754585626/lead-guru-new-logo-W-450_oyvumx.webp" alt="Lead Guru Logo" class="logo">
+                <div class="slide-number">02</div>
+            </div>
+            <h2>Executive Summary</h2>
+            <div class="content-grid">
+                <div>
+                    <h3>Current Situation</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">576</div>
+                        <div class="metric-label">Active Campaigns</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">5,812</div>
+                        <div class="metric-label">Ad Variations</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">3+</div>
+                        <div class="metric-label">Years of Data</div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Strategic Opportunity</h3>
+                    <div class="key-insight">
+                        <strong>🎯 Critical Insight:</strong> Mór Irish Gin is not just a premium spirit - it's a sophisticated identity marker for the "thoughtful host," "subtle show-off," and "aesthetically sensitive" consumer.
+                    </div>
+                    <div class="pain-point">
+                        <div class="pain-point-title">Over-Segmentation Issue</div>
+                        Campaign complexity diluting budget effectiveness
+                    </div>
+                    <div class="pain-point">
+                        <div class="pain-point-title">Scaling Opportunity</div>
+                        Transform from product benefits to psychological triggers
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Customer Psychology -->
+        <div class="slide">
+            <div class="slide-header">
+                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1754585626/lead-guru-new-logo-W-450_oyvumx.webp" alt="Lead Guru Logo" class="logo">
+                <div class="slide-number">03</div>
+            </div>
+            <h2>Customer Psychology Deep Dive</h2>
+            <div class="content-single">
+                <div class="content-grid">
+                    <div>
+                        <h3><span class="emoji">🔥</span>High-Intensity Triggers</h3>
+                        <div class="pain-point">
+                            <div class="pain-point-title">Status Anxiety</div>
+                            "I want to be the kind of person who chooses 'the right' drink"
+                        </div>
+                        <div class="pain-point">
+                            <div class="pain-point-title">Event Hosting</div>
+                            "I don't want to look like I bought random booze from the corner store"
+                        </div>
+                        <div class="pain-point">
+                            <div class="pain-point-title">Gifting Pressure</div>
+                            "I need something that doesn't feel impersonal or cheap"
+                        </div>
+                        <div class="pain-point">
+                            <div class="pain-point-title">Romantic Impressing</div>
+                            "I don't want to pull out a boring bottle of Gordon's"
+                        </div>
+                    </div>
+                    <div>
+                        <h3><span class="emoji">🐍</span>Subtle, Persistent Triggers</h3>
+                        <div class="pain-point">
+                            <div class="pain-point-title">Aesthetic Lifestyle</div>
+                            "Ugly bottles ruin the vibe of my kitchen shelf"
+                        </div>
+                        <div class="pain-point">
+                            <div class="pain-point-title">Creative Experimentation</div>
+                            "I want to create something Instagram-worthy"
+                        </div>
+                        <div class="pain-point">
+                            <div class="pain-point-title">Insider Knowledge</div>
+                            "I want to look like I know something others don't"
+                        </div>
+                        <div class="pain-point">
+                            <div class="pain-point-title">Identity Evolution</div>
+                            "I'm not the person who drinks cheap vodka anymore"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Target Personas -->
+        <div class="slide">
+            <div class="slide-header">
+                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1754585626/lead-guru-new-logo-W-450_oyvumx.webp" alt="Lead Guru Logo" class="logo">
+                <div class="slide-number">04</div>
+            </div>
+            <h2>Primary Target Personas</h2>
+            <div class="content-single scrollable">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div class="metric-card">
+                        <h3>The Thoughtful Host</h3>
+                        <div style="color: #b0c4de; margin-bottom: 15px;">35-50, High Status Anxiety</div>
+                        <div><strong>Pain:</strong> "People coming over, don't want to look unrefined"</div>
+                        <div><strong>Fear:</strong> Social rejection</div>
+                        <div><strong>Targeting:</strong> Entertaining, premium home goods</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>The Subtle Show-Off</h3>
+                        <div style="color: #b0c4de; margin-bottom: 15px;">28-45, Identity Construction</div>
+                        <div><strong>Pain:</strong> "Want to choose 'the right' drink"</div>
+                        <div><strong>Fear:</strong> Being judged as basic</div>
+                        <div><strong>Targeting:</strong> Craft cocktails, foodie communities</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>The Aesthetically Sensitive</h3>
+                        <div style="color: #b0c4de; margin-bottom: 15px;">25-40, Visual Identity</div>
+                        <div><strong>Pain:</strong> "Ugly bottles ruin my kitchen vibe"</div>
+                        <div><strong>Fear:</strong> Aesthetic rejection</div>
+                        <div><strong>Targeting:</strong> Interior design, lifestyle photography</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>The Aspiring Mixologist</h3>
+                        <div style="color: #b0c4de; margin-bottom: 15px;">30-45, Creative Expression</div>
+                        <div><strong>Pain:</strong> "Want Instagram-worthy cocktails"</div>
+                        <div><strong>Fear:</strong> Creative failure</div>
+                        <div><strong>Targeting:</strong> Cocktail recipes, bartending</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: 90-Day Implementation Roadmap -->
+        <div class="slide">
+            <div class="slide-header">
+                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1754585626/lead-guru-new-logo-W-450_oyvumx.webp" alt="Lead Guru Logo" class="logo">
+                <div class="slide-number">05</div>
+            </div>
+            <h2>90-Day Implementation Roadmap</h2>
+            <div class="phase-timeline">
+                <div class="phase">
+                    <div class="phase-number">1</div>
+                    <h3>Foundation</h3>
+                    <div style="color: #b0c4de; margin-bottom: 15px;">Days 1-30</div>
+                    <ul style="text-align: left; font-size: 0.9rem;">
+                        <li>Campaign consolidation (40% reduction)</li>
+                        <li>Psychology-based audience targeting</li>
+                        <li>Pain-point creative development</li>
+                        <li>Enhanced tracking setup</li>
+                    </ul>
+                    <div class="highlight-box" style="margin-top: 15px;">
+                        <strong>Target: 15% ROAS improvement</strong>
+                    </div>
+                </div>
+                <div class="phase">
+                    <div class="phase-number">2</div>
+                    <h3>Scaling</h3>
+                    <div style="color: #b0c4de; margin-bottom: 15px;">Days 31-60</div>
+                    <ul style="text-align: left; font-size: 0.9rem;">
+                        <li>Aggressive budget scaling (20% daily)</li>
+                        <li>Geographic expansion testing</li>
+                        <li>Advanced campaign types</li>
+                        <li>Conversion optimization</li>
+                    </ul>
+                    <div class="highlight-box" style="margin-top: 15px;">
+                        <strong>Target: 100% spend increase</strong>
+                    </div>
+                </div>
+                <div class="phase">
+                    <div class="phase-number">3</div>
+                    <h3>Domination</h3>
+                    <div style="color: #b0c4de; margin-bottom: 15px;">Days 61-90</div>
+                    <ul style="text-align: left; font-size: 0.9rem;">
+                        <li>Market expansion implementation</li>
+                        <li>Customer retention campaigns</li>
+                        <li>Competitive positioning</li>
+                        <li>Q4 strategy development</li>
+                    </ul>
+                    <div class="highlight-box" style="margin-top: 15px;">
+                        <strong>Target: 200% revenue growth</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Campaign Strategy -->
+        <div class="slide">
+            <div class="slide-header">
+                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1754585626/lead-guru-new-logo-W-450_oyvumx.webp" alt="Lead Guru Logo" class="logo">
+                <div class="slide-number">06</div>
+            </div>
+            <h2>Pain Point-Driven Campaign Strategy</h2>
+            <div class="content-grid">
+                <div>
+                    <h3>Budget Allocation</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">25%</div>
+                        <div class="metric-label">Status Anxiety Relief Campaign</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">20%</div>
+                        <div class="metric-label">Event Hosting Hero Campaign</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">15%</div>
+                        <div class="metric-label">Aesthetic Lifestyle Campaign</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">15%</div>
+                        <div class="metric-label">Gift Confidence Campaign</div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Creative Messaging Examples</h3>
+                    <div class="pain-point">
+                        <div class="pain-point-title">Status Anxiety</div>
+                        "Finally, a gin that makes you look like you know something others don't"
+                    </div>
+                    <div class="pain-point">
+                        <div class="pain-point-title">Event Hosting</div>
+                        "Your guests will smell this before they taste it (and ask where you found it)"
+                    </div>
+                    <div class="pain-point">
+                        <div class="pain-point-title">Gifting</div>
+                        "The gift that says 'I actually put thought into this'"
+                    </div>
+                    <div class="pain-point">
+                        <div class="pain-point-title">Identity</div>
+                        "This is the gin for who you're becoming"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Expected Outcomes -->
+        <div class="slide">
+            <div class="slide-header">
+                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1754585626/lead-guru-new-logo-W-450_oyvumx.webp" alt="Lead Guru Logo" class="logo">
+                <div class="slide-number">07</div>
+            </div>
+            <h2>Expected Outcomes & ROI</h2>
+            <div class="content-grid">
+                <div>
+                    <h3>Revenue Projections</h3>
+                    <div class="highlight-box">
+                        <div class="highlight-number">4.0+</div>
+                        <div>Sustained Purchase ROAS</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">200-300%</div>
+                        <div class="metric-label">Monthly Revenue Increase</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">250%</div>
+                        <div class="metric-label">Customer Base Growth</div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Brand Positioning Impact</h3>
+                    <div class="metric-card">
+                        <div class="metric-number">300%</div>
+                        <div class="metric-label">User-Generated Content Increase</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">150%</div>
+                        <div class="metric-label">Organic Referral Traffic</div>
+                    </div>
+                    <div class="key-insight">
+                        <strong>Identity Transformation:</strong> Mór becomes synonymous with "good taste" in gin selection, creating an emotional moat against competitors.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Next Steps -->
+        <div class="slide">
+            <div class="slide-header">
+                <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1754585626/lead-guru-new-logo-W-450_oyvumx.webp" alt="Lead Guru Logo" class="logo">
+                <div class="slide-number">08</div>
+            </div>
+            <h2>Immediate Next Steps</h2>
+            <div class="content-single">
+                <div style="margin-bottom: 40px;">
+                    <h3><span class="emoji">🚀</span>Week 1 Priorities</h3>
+                    <ul>
+                        <li><strong>Campaign Audit:</strong> Analyze current performance and identify consolidation opportunities</li>
+                        <li><strong>Pain Point Research:</strong> Validate customer psychology insights through surveys/interviews</li>
+                        <li><strong>Creative Development:</strong> Develop initial pain point-focused ad creative concepts</li>
+                        <li><strong>Tracking Setup:</strong> Implement enhanced attribution and psychological engagement metrics</li>
+                    </ul>
+                </div>
+                
+                <div style="margin-bottom: 40px;">
+                    <h3><span class="emoji">🎯</span>Quick Wins (Week 2-3)</h3>
+                    <ul>
+                        <li><strong>Launch "Status Anxiety Relief" Campaign:</strong> Highest conversion potential</li>
+                        <li><strong>Pause Underperforming Campaigns:</strong> 40% campaign reduction</li>
+                        <li><strong>Retargeting Optimization:</strong> Psychology-based messaging for website visitors</li>
+                        <li><strong>Holiday Season Prep:</strong> "Event Hosting Hero" campaign for upcoming events</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <div style="font-size: 1.4rem; margin-bottom: 15px;"><strong>Success Metric</strong></div>
+                    <div>Achieve 15% ROAS improvement within 30 days while maintaining or increasing total revenue</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="slide-dots">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+        <div class="dot" onclick="goToSlide(3)"></div>
+        <div class="dot" onclick="goToSlide(4)"></div>
+        <div class="dot" onclick="goToSlide(5)"></div>
+        <div class="dot" onclick="goToSlide(6)"></div>
+        <div class="dot" onclick="goToSlide(7)"></div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            
+            currentSlide = n;
+            
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        function goToSlide(n) {
+            showSlide(n);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        // Initialize
+        showSlide(0);
+
+        // Auto-advance option (uncomment to enable)
+        // setInterval(() => {
+        //     if (currentSlide < totalSlides - 1) changeSlide(1);
+        // }, 10000);
+    </script>
+</body>
+</html>
