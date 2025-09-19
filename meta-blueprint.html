@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mór Irish Gin - Meta Ads Strategy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #162642 0%, #1a2e4a 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .slide {
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-bottom: 2px solid rgba(204, 91, 39, 0.2);
+        }
+
+        .slide:last-child {
+            border-bottom: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #cc5b27;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: #cc5b27;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        h4 {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        p, li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #cc5b27, #ff7a3d);
+            color: #162642;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 8px 24px rgba(204, 91, 39, 0.3);
+        }
+
+        .highlight h3, .highlight h4, .highlight p, .highlight li {
+            color: #162642;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(204, 91, 39, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 36px rgba(204, 91, 39, 0.4);
+        }
+
+        .metric {
+            text-align: center;
+            padding: 20px;
+            background: rgba(204, 91, 39, 0.2);
+            border-radius: 12px;
+            margin: 10px;
+        }
+
+        .metric-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #cc5b27;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: white;
+            margin-top: 5px;
+        }
+
+        .budget-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 40px;
+            border-radius: 20px;
+            margin: 10px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .budget-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #cc5b27, #ff7a3d);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            font-weight: bold;
+            transition: width 0.8s ease;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .timeline-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 5px;
+            border-radius: 12px;
+            border-left: 4px solid #cc5b27;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #cc5b27, #ff7a3d);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 30px auto;
+            display: inline-block;
+            box-shadow: 0 8px 24px rgba(204, 91, 39, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .cta:hover {
+            transform: scale(1.05);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        li:before {
+            content: "→";
+            color: #cc5b27;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .risk-item {
+            background: rgba(204, 91, 39, 0.1);
+            border-left: 4px solid #cc5b27;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .grid { grid-template-columns: 1fr; }
+            .timeline { flex-direction: column; }
+            .slide { padding: 20px 15px; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .accent-line {
+            height: 4px;
+            background: linear-gradient(90deg, #cc5b27, #ff7a3d);
+            width: 100px;
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<div class="slide">
+    <div class="container">
+        <img src="https://res.cloudinary.com/dcnabm5nc/image/upload/v1754585626/lead-guru-new-logo-W-450_oyvumx.webp" alt="Lead Guru Logo" class="logo">
+        <h1>Mór Irish Gin</h1>
+        <div class="accent-line"></div>
+        <h2>High-Converting Meta Ads Strategy</h2>
+        <div class="highlight">
+            <h3>Goal: 2x+ ROAS | 300+ Units/Month | German Market</h3>
+            <p>Transform €70k losses into profitable growth with precision targeting and emotional storytelling</p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 2: Campaign Overview -->
+<div class="slide">
+    <div class="container">
+        <h2>Campaign Overview</h2>
+        <div class="grid">
+            <div class="metric">
+                <span class="metric-number">€100-200</span>
+                <span class="metric-label">Daily Budget</span>
+            </div>
+            <div class="metric">
+                <span class="metric-number">€200-300</span>
+                <span class="metric-label">Breakeven CPA</span>
+            </div>
+            <div class="metric">
+                <span class="metric-number">€70</span>
+                <span class="metric-label">Average Order Value</span>
+            </div>
+            <div class="metric">
+                <span class="metric-number">2.5x+</span>
+                <span class="metric-label">Target ROAS</span>
+            </div>
+        </div>
+        <div class="highlight">
+            <h3>Strategic Shift from Previous Campaigns</h3>
+            <div class="grid">
+                <div>
+                    <h4>❌ What Failed Before</h4>
+                    <ul>
+                        <li>60M broad German targeting</li>
+                        <li>Translation disasters</li>
+                        <li>"Better gin" problem-solving</li>
+                        <li>€70k budget burning</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>✅ New Strategy</h4>
+                    <ul>
+                        <li>Precision lookalike audiences</li>
+                        <li>Native German copywriters</li>
+                        <li>Heritage emotional storytelling</li>
+                        <li>Smart budget allocation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 3: Campaign Structure -->
+<div class="slide">
+    <div class="container">
+        <h2>4-Campaign Structure</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Heritage Prospecting</h3>
+                <div class="budget-bar">
+                    <div class="budget-fill" style="width: 40%;">40% Budget</div>
+                </div>
+                <ul>
+                    <li>Customer lookalikes (1%, 2%, 3%)</li>
+                    <li>Premium gin enthusiasts</li>
+                    <li>Irish culture & heritage</li>
+                    <li>Craft/artisan spirits</li>
+                </ul>
+                <p><strong>Creative Focus:</strong> 413 recipes story, Tullamore legacy</p>
+            </div>
+            <div class="card">
+                <h3>Social Proof Conversion</h3>
+                <div class="budget-bar">
+                    <div class="budget-fill" style="width: 30%;">30% Budget</div>
+                </div>
+                <ul>
+                    <li>Best performing lookalikes</li>
+                    <li>Competitor interests</li>
+                    <li>Gourmet lifestyle targeting</li>
+                </ul>
+                <p><strong>Creative Focus:</strong> "Nothing compares to Mór" testimonials</p>
+            </div>
+            <div class="card">
+                <h3>Retargeting Funnel</h3>
+                <div class="budget-bar">
+                    <div class="budget-fill" style="width: 20%;">20% Budget</div>
+                </div>
+                <ul>
+                    <li>7-30 day website visitors</li>
+                    <li>Add-to-cart abandoners</li>
+                    <li>Video viewers 50%+</li>
+                </ul>
+                <p><strong>Creative Focus:</strong> WELCOME15 + urgency messaging</p>
+            </div>
+            <div class="card">
+                <h3>Broad Testing & Scale</h3>
+                <div class="budget-bar">
+                    <div class="budget-fill" style="width: 10%;">10% Budget</div>
+                </div>
+                <ul>
+                    <li>Advantage+ audiences</li>
+                    <li>Broad German 35-54</li>
+                    <li>Austria/Netherlands expansion</li>
+                </ul>
+                <p><strong>Creative Focus:</strong> Independence angle, broad appeal</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 4: Creative Strategy -->
+<div class="slide">
+    <div class="container">
+        <h2>Creative Framework</h2>
+        <div class="highlight">
+            <h3>Priority Launch Creatives (Weeks 1-2)</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>🏠 Irish Cottage Storm</h4>
+                    <p>Traditional cottage during dramatic storm, warm light from windows, Mór bottle prominent on rustic table</p>
+                    <p><strong>Hook:</strong> "When the storm hits, the Irish know what matters"</p>
+                </div>
+                <div class="card">
+                    <h4>📜 413 Recipes Revelation</h4>
+                    <p>Split-screen: 412 crumpled papers vs. perfect Mór bottle gleaming like trophy</p>
+                    <p><strong>Hook:</strong> "413 attempts. One perfect moment."</p>
+                </div>
+                <div class="card">
+                    <h4>👴 Tullamore Legacy</h4>
+                    <p>Double exposure: Vintage distillery workers blended with modern Mór bottle</p>
+                    <p><strong>Hook:</strong> "From grandfather's Tullamore to Ireland's boldest gin"</p>
+                </div>
+                <div class="card">
+                    <h4>⭐ Social Proof Power</h4>
+                    <p>Multiple 5-star reviews with prominent Mór bottle and testimonial quotes</p>
+                    <p><strong>Hook:</strong> "Nothing compares to Mór" - verified buyers</p>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h3>Copy Framework Templates</h3>
+            <ul>
+                <li><strong>Heritage:</strong> "From grandfather's Tullamore to Ireland's boldest gin. 413 recipes perfected..."</li>
+                <li><strong>Social Proof:</strong> "'Nothing compares to Mór' - Master of Malt Customer..."</li>
+                <li><strong>Scarcity:</strong> "Finally available in Germany. The Irish gin tourists couldn't stop talking about..."</li>
+                <li><strong>Independence:</strong> "In a world of corporate spirits, be independent..."</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 5: Timeline & KPIs -->
+<div class="slide">
+    <div class="container">
+        <h2>Implementation Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>Week 1-2</h4>
+                <h3>Foundation</h3>
+                <ul>
+                    <li>Launch 4 core campaigns</li>
+                    <li>2 creatives per campaign</li>
+                    <li>Daily CPA/ROAS monitoring</li>
+                    <li>24-48hr kill failing ads</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>Week 3-4</h4>
+                <h3>Expansion</h3>
+                <ul>
+                    <li>Add winning creative variations</li>
+                    <li>Test new audience segments</li>
+                    <li>Introduce video content</li>
+                    <li>German copy optimization</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <h4>Week 5-8</h4>
+                <h3>Scale & Optimize</h3>
+                <ul>
+                    <li>Focus on winning combinations</li>
+                    <li>Austria/Netherlands expansion</li>
+                    <li>Seasonal messaging</li>
+                    <li>Customer LTV optimization</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h3>Key Performance Indicators</h3>
+        <div class="grid">
+            <div class="metric">
+                <span class="metric-number">€200-250</span>
+                <span class="metric-label">Target CPA</span>
+            </div>
+            <div class="metric">
+                <span class="metric-number">2.5x+</span>
+                <span class="metric-label">Target ROAS</span>
+            </div>
+            <div class="metric">
+                <span class="metric-number">€21k+</span>
+                <span class="metric-label">Monthly Revenue Target</span>
+            </div>
+            <div class="metric">
+                <span class="metric-number">1.5%+</span>
+                <span class="metric-label">Target CTR</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 6: Success Benchmarks -->
+<div class="slide">
+    <div class="container">
+        <h2>Success Benchmarks & Risk Mitigation</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Month 1 Targets</h3>
+                <ul>
+                    <li>Break-even ROAS achieved</li>
+                    <li>CPA under €300 consistently</li>
+                    <li>150+ units sold</li>
+                    <li>Audience validation complete</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Month 2-3 Targets</h3>
+                <ul>
+                    <li>2x+ ROAS sustained</li>
+                    <li>CPA under €250</li>
+                    <li>300+ units monthly</li>
+                    <li>Market expansion ready</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Critical Success Factors</h3>
+        <div class="highlight">
+            <div class="grid">
+                <div>
+                    <h4>✅ Must-Do Actions</h4>
+                    <ul>
+                        <li>Upload 6,500+ customer list immediately</li>
+                        <li>Hire German copywriter first</li>
+                        <li>Start Heritage + Social Proof only</li>
+                        <li>Static images priority</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>⚠️ Red Flags (Kill Fast)</h4>
+                    <ul>
+                        <li>CPA above €350 for 48+ hours</li>
+                        <li>CTR below 1% after 3 days</li>
+                        <li>Ad relevance score below 6</li>
+                        <li>ROAS below 1.5x sustained</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta">
+            Ready to Transform €70k Losses into Profitable Growth?
+            <br><small>Expected Timeline: Profitable within 14 days</small>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Add fade-in animations on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.card, .metric, .timeline-item').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Animate budget bars on scroll
+    const budgetBars = document.querySelectorAll('.budget-fill');
+    const budgetObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.width = entry.target.style.width;
+            }
+        });
+    });
+
+    budgetBars.forEach(bar => budgetObserver.observe(bar));
+</script>
+
+</body>
+</html>
